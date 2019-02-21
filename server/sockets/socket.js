@@ -22,4 +22,18 @@ io.on('connection', (client) => {
         callback(siguiente);
     });
 
+    client.on('atenderTickect', (data, callback) => {
+        if (!data.escritorio) {
+            return callback({
+                err: true,
+                mensaje: 'El escritorio es necesario',
+                ticket: {}
+            })
+        }
+
+        let atenderTicket = ticket.atenderTicket(data.escritorio);
+        callback(atenderTicket)
+
+    });
+
 });
