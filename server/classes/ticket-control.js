@@ -17,6 +17,10 @@ class TicketControl {
     siguienteTicket() {
         this.ultimo += 1;
         this.grabarArchivo();
+        return this.getUltimoTicket()
+    }
+
+    getUltimoTicket() {
         return `Ticket ${this.ultimo}`
     }
 
