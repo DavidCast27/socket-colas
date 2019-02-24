@@ -12,7 +12,6 @@ $('h1').text(`Escritorio ${escritorio}`)
 
 $('button').on('click', function() {
     socket.emit('atenderTickect', { escritorio }, function(resp) {
-        console.log(resp);
         if (resp.err) {
             $('h4').text(resp.mensaje)
         } else {

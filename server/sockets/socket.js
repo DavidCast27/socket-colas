@@ -9,6 +9,7 @@ io.on('connection', (client) => {
 
     client.emit('estadoActual', {
         actual: ticket.getUltimoTicket(),
+        ultimos: ticket.getUltimosTickets()
     });
 
     client.on('disconnect', () => {
