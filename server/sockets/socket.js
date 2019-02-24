@@ -34,6 +34,13 @@ io.on('connection', (client) => {
 
         let atenderTicket = ticket.atenderTicket(data.escritorio);
         callback(atenderTicket)
+        if (!atenderTicket.err) {
+            client.broadcast.emit('ultimosTickets', {
+                actual: ticket.getUltimoTicket(),
+                ultimos: ticket.getUltimosTickets()
+            });
+        }
+
 
     });
 
